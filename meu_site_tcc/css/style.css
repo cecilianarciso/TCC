@@ -1,0 +1,45 @@
+/* Palette: rosa, branco e azul */
+:root{
+  --rosa: #ff6fa3;
+  --rosa-escuro: #ff4f8a;
+  --azul: #4da6ff;
+  --branco: #ffffff;
+}
+
+/* Basic layout */
+body{
+  background: linear-gradient(180deg, #fff 0%, #f8f9fb 100%);
+  color: #222;
+  min-height:100vh;
+}
+
+/* Header */
+.site-header .navbar{
+  background: linear-gradient(90deg, var(--rosa), var(--azul));
+  border-radius: 12px;
+  padding: .6rem 1rem;
+}
+.site-header .navbar-brand, .site-header .nav-link { color: var(--branco) !important; }
+
+.primary-title { color: var(--azul); }
+
+.btn-pink {
+  background: linear-gradient(90deg, var(--rosa), var(--rosa-escuro));
+  color: var(--branco);
+  border: none;
+  border-radius: 30px;
+  padding: 10px 18px;
+  box-shadow: 0 6px 16px rgba(255,111,160,0.12);
+}
+
+.card { border-radius: 12px; }
+
+.site-footer{
+  background: transparent;
+  color: #444;
+}
+
+/* Responsividade adicional */
+@media (max-width:576px){
+  .site-header .navbar-brand div { display:none; }
+}
