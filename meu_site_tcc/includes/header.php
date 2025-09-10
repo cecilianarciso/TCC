@@ -24,11 +24,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navmenu">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="/meu_site_tcc/index.php">Início</a></li>
-            <li class="nav-item"><a class="nav-link" href="/meu_site_tcc/sobre.php">Sobre</a></li>
-            <li class="nav-item"><a class="nav-link" href="/meu_site_tcc/cadastro.php">Cadastro</a></li>
-            <li class="nav-item"><a class="nav-link" href="/meu_site_tcc/contato.php">Contato</a></li>
-            <li class="nav-item"><a class="nav-link" href="/meu_site_tcc/login.php">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="cadastro.php">Cadastro</a></li>
+            <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
           </ul>
         </div>
       </div>
