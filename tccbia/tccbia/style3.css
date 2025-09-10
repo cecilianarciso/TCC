@@ -1,0 +1,403 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body e container */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f8fa;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    /* Espaço para navbar fixa de duas linhas (~100px) */
+    padding-top: 100px;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Navbar fixa no topo */
+.navbar {
+    background-color: #2980b9;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Container da navbar com duas linhas */
+.navbar .container {
+    display: flex;
+    flex-direction: column; /* empilha verticalmente */
+    align-items: center;    /* centraliza horizontalmente */
+    gap: 8px;               /* espaçamento entre as linhas */
+    padding: 10px 20px;
+}
+
+/* Primeira linha: logo e botão hamburguer */
+.navbar .top-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+/* Botão do menu hamburguer */
+.navbar .nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none; /* só aparece em mobile */
+    padding: 5px;
+}
+
+/* Hamburger icon */
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    display: block;
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: "";
+    position: absolute;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Segunda linha: links de navegação */
+.navbar .nav-links {
+    display: flex;
+    flex-wrap: wrap;       /* permite quebrar em mais de uma linha se necessário */
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 700px;      /* limite de largura para centralizar */
+}
+
+.navbar .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    white-space: nowrap;   /* evita quebra dentro do link */
+    transition: color 0.3s;
+}
+
+.navbar .nav-links li a:hover {
+    color: #b0d4f1;
+}
+
+/* Navbar responsiva */
+@media (max-width: 768px) {
+    /* Exibe botão hamburguer */
+    .nav-toggle {
+        display: block;
+    }
+
+    /* Esconde links por padrão */
+    .nav-links {
+        position: fixed;
+        top: 100px; /* altura da navbar de duas linhas */
+        right: 0;
+        background-color: #2980b9;
+        height: calc(100% - 100px);
+        width: 200px;
+        flex-direction: column;
+        padding-top: 20px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        max-width: 100%;
+        gap: 15px;
+        z-index: 9999;
+    }
+
+    /* Quando menu aberto */
+    .nav-links.nav-links-visible {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        margin-bottom: 15px;
+    }
+}
+
+/* Header Hero */
+.hero {
+    background: url('images/hero-bg.jpg') center/cover no-repeat;
+    color: white;
+    padding: 140px 20px 80px;
+    text-align: center;
+    margin-top: 0; /* removido para evitar conflito com padding-top do body */
+    box-shadow: inset 0 0 0 1000px rgba(41, 128, 185, 0.6);
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.btn-primary {
+    background-color: #f39c12;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d78e0a;
+}
+
+/* Seções */
+.section {
+    margin: 60px 0;
+}
+
+.section h2 {
+    color: #2980b9;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #2980b9;
+    padding-bottom: 8px;
+}
+
+/* Listas */
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 1.1rem;
+}
+
+/* Carrossel */
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+    min-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    user-select: none;
+}
+
+/* Botões do carrossel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(41, 128, 185, 0.7);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(41, 128, 185, 0.9);
+}
+
+#prev-btn {
+    left: 15px;
+}
+
+#next-btn {
+    right: 15px;
+}
+
+/* Footer */
+.footer {
+    background-color: #2980b9;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .carousel-image {
+        height: 250px;
+    }
+}
+
+/* Background carousel (container principal com fundo que troca) */
+.background-carousel {
+    position: relative;
+    width: 100%;
+    height: 400px; /* ajuste conforme necessidade */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    box-shadow: inset 0 0 0 1000px rgba(41, 128, 185, 0.6); /* camada azul translúcida */
+}
+
+.background-carousel .content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.background-carousel h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+.background-carousel p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+/* Estilos adicionais para a página de informações detalhadas */
+
+/* Container principal da página de informações */
+main.container.informacoes {
+    margin-top: 120px; /* Espaço para navbar fixa */
+    padding-bottom: 40px;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Título principal */
+main.informacoes h1 {
+    color: #2980b9;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Seções de conteúdo */
+.section.informacoes {
+    margin-bottom: 40px;
+}
+
+/* Títulos das seções */
+.section.informacoes h2 {
+    color: #34495e;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #2980b9;
+    padding-bottom: 6px;
+    font-weight: 600;
+}
+
+/* Listas de links */
+.section.informacoes ul {
+    list-style-type: disc;
+    margin-left: 25px;
+    font-size: 1.1rem;
+}
+
+.section.informacoes ul li {
+    margin-bottom: 12px;
+}
+
+/* Links dentro das listas */
+.section.informacoes ul li a {
+    color: #2980b9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.section.informacoes ul li a:hover {
+    color: #f39c12;
+    text-decoration: underline;
+}
+
+/* Botão voltar */
+main.informacoes p a.btn-primary {
+    display: inline-block;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Responsividade para página de informações */
+@media (max-width: 600px) {
+    main.informacoes h1 {
+        font-size: 2rem;
+    }
+
+    .section.informacoes h2 {
+        font-size: 1.5rem;
+    }
+
+    .section.informacoes ul {
+        font-size: 1rem;
+    }
+}
